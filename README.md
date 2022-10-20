@@ -1,9 +1,9 @@
 # Another order manager
-tech stack->
-next.js
-discord.js
-typescript
-scss
+> ## tech stack
+- next.js
+- discord.js
+- typescript
+- scss
 
 >## Function
 >  
