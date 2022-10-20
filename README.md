@@ -25,6 +25,7 @@ scss
 >##bug 
 >need to have full price , price -> frontend  
 >database player_id shud change to discord_id  
->need find a way to inner join database orderlist to playerid - > get the player nickname and display on frontend
+>need find a way to inner join database orderlist to playerid
+>get the player nickname and display on frontend
 >fix `There are already 10 instances of Prisma Client actively running.`
 >
