@@ -1,0 +1,56 @@
+@use './variables';
+
+.bigTitleContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bigTitle{
+    @extend .textStyle;
+    margin: 0;
+    margin-top: -20px;
+}
+
+.allContainer{
+    margin-top: 30px;
+    background-color: variables.$darker-form-bg-color;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+
+
+}
+
+.allInputContainer{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+
+    padding: 25px;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.inputContainer label{
+    @extend .textStyle;
+}
+
+.inputContainer input{
+    @extend .inputStyle;
+}
+
+.submitBtn{
+    font-size: 25px;
+    padding-bottom: 5%;
+    @extend .btnStyle
+}
+
+.submitBtnContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

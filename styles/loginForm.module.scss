@@ -1,0 +1,66 @@
+@use './variables.scss';
+
+.loginFormContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.loginForm{
+    align-items: center;
+    justify-content: center;
+    background-color: variables.$form-bg-color;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+    width: 400px;
+    height: 400px;
+}
+
+.loginItemContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+}
+
+.input{
+    display: flex;
+    flex-direction: row;
+    margin: 10px auto 10px auto;
+}
+
+.inputLabel{
+
+    @extend .textStyle;
+    font-size: 18px;
+
+}
+
+.inputTextInput{
+    @extend .inputStyle;
+}
+
+.submitBtn{
+    @extend .btnStyle;
+    
+}
+
+.loginH1{
+    font-size: 28px;
+    @extend .textStyle;
+}

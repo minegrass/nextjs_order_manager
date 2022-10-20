@@ -1,0 +1,18 @@
+POST http://localhost:3000/api/order
+content-type: application/json
+
+{
+    "user": "test",
+    "pass": "testp",
+    "data":"123"
+}
+###
+GET http://localhost:3000/api/order
+content-type: application/json
+Cookie: accessToken=random
+
+{
+    "user": "test",
+    "pass": "testp",
+    "data":"123"
+}

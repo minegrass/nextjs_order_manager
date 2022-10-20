@@ -1,0 +1,44 @@
+$main-bg-color:#38332A;
+$form-bg-color:#D9D9D9;
+$darker-form-bg-color:#C8BBAC;
+$filter-drop-shadow:drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+$linear-bg-color:linear-gradient(180deg, #C5AB8E 0%, #FFFFFF 100%);
+$navbar-color:#DEB2A4;
+$icon-bg-color:#D9D9D9;
+
+.textStyle{
+    color: #FFFFFF;
+    font-weight: 400;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 1);
+}
+
+.inputStyle{
+    background-color: #FFFFFF;
+    border: 2px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    padding-left: 5px;
+    margin-left:10px;
+    &:focus{
+        border-radius: 5px;
+        outline: 2px solid #C64C4C;
+}}
+
+.btnStyle{
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+    font-weight: 400;
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 1);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    &:hover{
+        text-decoration: underline;
+        text-decoration-color: black;
+        letter-spacing: 3px;
+    }
+}
