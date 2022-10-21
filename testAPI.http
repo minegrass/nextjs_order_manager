@@ -9,10 +9,33 @@ content-type: application/json
 ###
 GET http://localhost:3000/api/order
 content-type: application/json
-Cookie: accessToken=random
+Cookie: accessToken={{accessToken}}
 
 {
     "user": "test",
     "pass": "testp",
     "data":"123"
+}
+
+###
+POST http://localhost:3000/api/order
+content-type: application/json
+Cookie: accessToken={{accessToken}}
+
+{
+    "username": "testUser",
+    "password": "testPass",
+    "request": "testReq",
+    "buyer": "testBuyer",
+    "price": 25
+}
+
+###
+PUT http://localhost:3000/api/order
+content-type: application/json
+Cookie: accessToken={{accessToken}}
+
+{
+    "order_id":1,
+    "done_order":true
 }

@@ -30,9 +30,13 @@
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
-.btnStyle:hover {
+.btnStyle:enabled:hover {
   text-decoration: underline;
   -webkit-text-decoration-color: black;
           text-decoration-color: black;
   letter-spacing: 3px;
+}
+.btnStyle:disabled {
+  cursor: default;
+  color: grey;
 }/*# sourceMappingURL=variables.css.map */

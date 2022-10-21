@@ -35,18 +35,24 @@
     justify-content: space-between;
 }
 
+.priceInput{
+    width: 65%;
+}
+
 .inputContainer label{
     @extend .textStyle;
 }
 
 .inputContainer input{
+    
     @extend .inputStyle;
 }
+
 
 .submitBtn{
     font-size: 25px;
     padding-bottom: 5%;
-    @extend .btnStyle
+    @extend .btnStyle;
 }
 
 .submitBtnContainer{

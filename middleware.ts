@@ -9,7 +9,7 @@ const jwtSecret = process.env.MY_SECRET
   : console.error("Secret for JWT are undefined.");
 
 // This function can be marked `async` if using `await` inside
-export function middleware(req: NextRequest) {
+export async function middleware(req: NextRequest) {
   const accessToken = req.cookies.get("accessToken");
   //middleware for "/"
   if (req.nextUrl.pathname === "/") {
@@ -18,7 +18,7 @@ export function middleware(req: NextRequest) {
 
     if (accessToken && jwtSecret) {
       try {
-        const result = jwtVerify(
+        const result = await jwtVerify(
           accessToken,
           new TextEncoder().encode(jwtSecret)
         );
@@ -44,11 +44,12 @@ export function middleware(req: NextRequest) {
     url.pathname = "/";
     if (accessToken && jwtSecret) {
       try {
-        const result = jwtVerify(
+        const result = await jwtVerify(
           accessToken,
           new TextEncoder().encode(jwtSecret)
         );
         console.log("auth complete");
+
         return NextResponse.next();
 
         //   result.then((item) => {

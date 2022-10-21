@@ -1,38 +1,15 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
+import { useState } from "react";
 import styles from "../styles/orderList.module.css";
 import OrderItem from "./OrderItem";
+import { useOrderData } from "../components/context/context";
+import { orderDataForOrderList } from "../sharedVar";
+
 // domain.com/order -> use for order page
 
-const sampleData = [
-  {
-    order_id: 1,
-    username: "tom",
-    password: "12333",
-    request: "s1 to s2",
-    full_price: "123.42",
-    price: "100",
-    player_id: null,
-    buyer: "FB YAP",
-    done_order: false,
-  },
-  {
-    order_id: 2,
-    username: "toms",
-    password: "12333",
-    request: "s1 to s2",
-    full_price: "123.42",
-    price: "100",
-    player_id: null,
-    buyer: "FB YAP",
-    done_order: false,
-  },
-];
-
-export const getServerSideProps = async () => {
-  console.log("heloa");
-};
-
 const OrderList: NextPage = () => {
+  const { orderList } = useOrderData();
+  // console.log(orderList);
   return (
     <>
       <div>
@@ -42,8 +19,9 @@ const OrderList: NextPage = () => {
           </div>
           <div>
             <div className={styles.orderList}>
-              <OrderItem />
-              <OrderItem />
+              {orderList.map((item) => {
+                return <OrderItem key={item.order_id} props={item} />;
+              })}
             </div>
           </div>
         </div>
