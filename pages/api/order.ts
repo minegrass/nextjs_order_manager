@@ -4,9 +4,16 @@ import { PrismaClient } from "@prisma/client";
 import { orderListItem } from "../../sharedVar";
 import { prisma } from "../../prisma/dbserver";
 import { orderSenderBody } from "../../sharedVar";
+import {
+  dcSendOrder,
+  dcLogin,
+  dcListenTakeOrder,
+} from "../../discord/discordBot";
 type Data = {
   result: any;
 };
+
+let discordOn = false;
 
 export default async function handler(
   req: NextApiRequest,
@@ -23,6 +30,12 @@ export default async function handler(
     res.status(200).json({ result: result });
   }
   if (req.method === "POST") {
+    // make sure only login to discord and create event listener to button once
+    if (!discordOn) {
+      await dcLogin();
+      await dcListenTakeOrder();
+      discordOn = true;
+    }
     const reqBody: orderSenderBody = req.body;
     const full_price = reqBody.price;
     const playerPrice = Math.floor(reqBody.price * 0.7); // cut is 3/7
@@ -35,6 +48,8 @@ export default async function handler(
     const result = await prisma.orderlist.create({
       data: dataBody,
     });
+    console.log(result);
+    await dcSendOrder(result.order_id, result.request, result.price);
     res.status(200).json({ result: "POST" });
   }
   if (req.method === "PUT") {
