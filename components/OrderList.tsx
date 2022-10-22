@@ -5,8 +5,6 @@ import OrderItem from "./OrderItem";
 import { useOrderData } from "../components/context/context";
 import { orderDataForOrderList } from "../sharedVar";
 
-// domain.com/order -> use for order page
-
 const OrderList: NextPage = () => {
   const { orderList } = useOrderData();
   // console.log(orderList);

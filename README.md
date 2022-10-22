@@ -43,8 +43,6 @@
 
 > #### 10/22/2022
 
-> done discord js api  
-> TODO -> player page frontend  
-> and render all player -> able to set/clear player balance  
-> -> navbar  
-> navigate to player/order and logout
+> done discord js api,done navbar,done-> click done and auto add balance to player
+> TODO ->
+> bug-> discordjs trigger multiple listener and take action to button click multiple times

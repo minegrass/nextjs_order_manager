@@ -6,7 +6,6 @@ import React, { useState } from "react";
 import { orderSenderBody } from "../sharedVar";
 import { useOrderData } from "../components/context/context";
 import Router from "next/router";
-// domain.com/order -> use for order page
 
 const initOrderSender: orderSenderBody = {
   username: "",

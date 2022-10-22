@@ -28,6 +28,12 @@ export type orderSenderBody = {
   price: number;
 };
 
+export type player = {
+  discord_id: string;
+  nickname: string | null;
+  balance: number | null;
+};
+
 export const domain: string = process.env.DOMAIN_URL || "http://localhost:3000";
 
 export const fetchToOrderApi = async (method: string, bodyValue: object) => {
@@ -44,4 +50,55 @@ export const fetchToOrderApi = async (method: string, bodyValue: object) => {
       return null;
     }
   });
+};
+
+export const fetchToPlayerApi = async (method: string, bodyValue: object) => {
+  return fetch(`/api/player`, {
+    method: `${method}`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(bodyValue),
+  }).then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      return null;
+    }
+  });
+};
+
+export const easyFetch = async (
+  APILink: string,
+  method: string,
+  bodyValue: object | null = null
+) => {
+  if (bodyValue) {
+    return fetch(`${APILink}`, {
+      method: `${method}`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bodyValue),
+    }).then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        return null;
+      }
+    });
+  } else {
+    return fetch(`${APILink}`, {
+      method: `${method}`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        return null;
+      }
+    });
+  }
 };

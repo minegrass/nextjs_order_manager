@@ -39,3 +39,19 @@ Cookie: accessToken={{accessToken}}
     "order_id":1,
     "done_order":true
 }
+
+### 
+
+GET http://localhost:3000/api/player
+content-type: application/json
+Cookie: accessToken={{accessToken}}
+
+###
+PUT http://localhost:3000/api/player
+content-type: application/json
+Cookie: accessToken={{accessToken}}
+
+{
+"discord_id":1,
+"balance":"+2"
+}

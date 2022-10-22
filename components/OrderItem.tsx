@@ -1,10 +1,9 @@
 import type { NextPage } from "next";
 import styles from "../styles/orderItem.module.css";
-import { orderDataForOrderList, orderListItem } from "../sharedVar";
-import { fetchToOrderApi } from "../sharedVar";
+import { easyFetch, orderDataForOrderList, orderListItem } from "../sharedVar";
+import { fetchToOrderApi, fetchToPlayerApi } from "../sharedVar";
 import { useState } from "react";
 import { useOrderData } from "./context/context";
-// domain.com/order -> use for order page
 
 const OrderItem: NextPage<{ props: orderDataForOrderList }> = ({ props }) => {
   const { setOrderList } = useOrderData();
@@ -19,6 +18,14 @@ const OrderItem: NextPage<{ props: orderDataForOrderList }> = ({ props }) => {
       if (data) {
         setDoneOrder(1);
       }
+    });
+    easyFetch(`/api/player/${props.discord_id}`, "GET").then((data) => {
+      const playerBody = {
+        discord_id: `${props.discord_id}`,
+        balance: parseInt(data.result.balance) + parseInt(props.price),
+      };
+      console.log(playerBody);
+      fetchToPlayerApi("PUT", playerBody);
     });
     console.log(`done ${id}`);
   };

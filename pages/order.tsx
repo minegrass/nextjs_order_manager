@@ -2,42 +2,10 @@ import type { NextPage, GetServerSideProps } from "next";
 import OrderList from "../components/OrderList";
 import OrderSender from "../components/OrderSender";
 import styles from "../styles/orderPage.module.css";
-import { orderDataForOrderList } from "../sharedVar";
 import { useOrderData } from "../components/context/context";
 import { prisma } from "../prisma/dbserver";
 import { useEffect } from "react";
-const sampleData: orderDataForOrderList[] = [
-  {
-    order_id: 1,
-    request: "s1 to s2",
-    full_price: "123.42",
-    buyer: "fb Tap",
-    price: "100",
-    done_order: 0,
-    discord_id: "0",
-    nickname: null,
-  },
-  {
-    order_id: 2,
-    request: "s2 to s3",
-    full_price: "123.42",
-    buyer: "fb Tap",
-    price: "100",
-    done_order: 0,
-    discord_id: "0",
-    nickname: null,
-  },
-  {
-    order_id: 3,
-    request: "asc 3 to immo with omen brim",
-    full_price: "123.42",
-    buyer: "shopee @Chong",
-    price: "100",
-    done_order: 1,
-    discord_id: "0",
-    nickname: null,
-  },
-];
+import NavBar from "../components/navbar";
 
 type Props = {
   Data: string;
@@ -64,6 +32,7 @@ const OrderPage: NextPage<Props> = (props) => {
   }, []);
   return (
     <>
+      <NavBar />
       <div className={styles.allContainer}>
         <div className={styles.ItemContainer}>
           <div>

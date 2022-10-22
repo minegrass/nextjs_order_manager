@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <OrderDataProvider>
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </OrderDataProvider>
     </>
   );
