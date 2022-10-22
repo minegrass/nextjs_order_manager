@@ -2,16 +2,12 @@
 
 > ## tech stack
 
----
-
 - next.js
 - discord.js
 - typescript
 - scss
 
 > ## Function
-
----
 
 > - login features
 > - save order details
@@ -26,14 +22,10 @@
 
 > ## extra convinient life function
 
----
-
 > - the order's DONE button cant be clicked if theres no player take the order (player = null)
 > - jwt save login details
 
 > ## bug
-
----
 
 > - need to have full price , price -> frontend
 > - database player_id shud change to discord_id
@@ -45,18 +37,14 @@
 
 > #### 10/21/2022
 
----
-
 > Done api/frontend of order page -> able to CRUD about orderlist at frontend  
 > TODO -> need to implement discord.js to send order to discord when add an order  
 > when player click the button then api PUT to update player to specific order
 
 > #### 10/22/2022
 
----
-
-> done discord js api
-> TODO -> player page frontend
-> and render all player -> able to set/clear player balance
-> -> navbar
+> done discord js api  
+> TODO -> player page frontend  
+> and render all player -> able to set/clear player balance  
+> -> navbar  
 > navigate to player/order and logout
