@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/index.module.css";
 import LoginForm from "../components/loginForm";
-import { dcLogin, dcListenTakeOrder } from "../discord/discordBot";
 
 // domain.com/ -> use for login page
 

@@ -13,7 +13,7 @@ type Data = {
   result: any;
 };
 
-let discordOn = false;
+let discordOn: boolean;
 
 export default async function handler(
   req: NextApiRequest,

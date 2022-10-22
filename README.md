@@ -46,3 +46,8 @@
 > done discord js api,done navbar,done-> click done and auto add balance to player
 > TODO ->
 > bug-> discordjs trigger multiple listener and take action to button click multiple times
+> -> problem : i added a variables that become true when discord login and add a listenenr
+> -> so it doenst trigger second time cuz the var become true
+> -> it works first -> but after i done [some others actions] calling others apit
+> -> my discord login console log called again and multiple listener added ?
+> need to find which action make the variables to false...
