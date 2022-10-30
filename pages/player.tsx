@@ -6,7 +6,7 @@ import { player } from "../sharedVar";
 import NavBar from "../components/navbar";
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const result = await prisma.player.findMany({});
-  console.log(result);
+  // console.log(result);
   return {
     props: {
       result: JSON.stringify(result),

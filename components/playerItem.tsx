@@ -31,7 +31,7 @@ const PlayerItem: NextPage<props> = ({ value }) => {
     setState((prev) => {
       return { ...prev, changingBal: false, changingName: false };
     });
-    console.log(updatedValue);
+    // console.log(updatedValue);
     fetchToPlayerApi("PUT", updatedValue);
   };
   const changeBtn = () => {

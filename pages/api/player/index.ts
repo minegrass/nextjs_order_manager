@@ -14,8 +14,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  console.log(req.cookies);
-  console.log(req.body);
+  // console.log(req.cookies);
+  // console.log(req.body);
   if (req.method === "GET") {
     // if (req.body.discord_id) {
     //   const result = await prisma.player.findUnique({

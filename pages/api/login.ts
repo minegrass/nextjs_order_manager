@@ -11,7 +11,7 @@ export default function handler(
 ) {
   if (req.method === "POST") {
     const { user, pass } = req.body;
-    console.log(user, pass);
+    // console.log(user, pass);
     if (user === process.env.ADMIN_USER && pass === process.env.ADMIN_PASS) {
       if (process.env.MY_SECRET) {
         const token = jwt.sign({ simple: "auth" }, process.env.MY_SECRET, {

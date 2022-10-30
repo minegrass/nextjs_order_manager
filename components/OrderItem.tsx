@@ -24,7 +24,7 @@ const OrderItem: NextPage<{ props: orderDataForOrderList }> = ({ props }) => {
         discord_id: `${props.discord_id}`,
         balance: parseInt(data.result.balance) + parseInt(props.price),
       };
-      console.log(playerBody);
+      // console.log(playerBody);
       fetchToPlayerApi("PUT", playerBody);
     });
     console.log(`done ${id}`);

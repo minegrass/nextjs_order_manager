@@ -16,8 +16,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  console.log(req.cookies);
-  console.log(req.body);
+  // console.log(req.cookies);
+  // console.log(req.body);
   if (req.method === "GET") {
     const result =
       await prisma.$queryRaw`SELECT orderlist.order_id,orderlist.request,orderlist.full_price,orderlist.price,orderlist.done_order,player.discord_id,player.nickname
@@ -40,8 +40,8 @@ export default async function handler(
     const result = await prisma.orderlist.create({
       data: dataBody,
     });
-    console.log(result);
-    console.log(dcURL);
+    // console.log(result);
+    // console.log(dcURL);
     const requestHeaders: HeadersInit = new Headers();
     requestHeaders.set("Content-Type", "application/json");
     // console.log(req.headers.cookie?.split("=")[1]);

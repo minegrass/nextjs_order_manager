@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import { deleteCookie } from "cookies-next";
 const NavBar: NextPage = () => {
   const route = useRouter();
-  console.log(route.pathname);
+  // console.log(route.pathname);
   const { orderList } = useOrderData();
   // console.log(orderList);
   const clickOrder = () => {
