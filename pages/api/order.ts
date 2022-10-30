@@ -4,16 +4,13 @@ import { PrismaClient } from "@prisma/client";
 import { orderListItem } from "../../sharedVar";
 import { prisma } from "../../prisma/dbserver";
 import { orderSenderBody } from "../../sharedVar";
-import {
-  dcSendOrder,
-  dcLogin,
-  dcListenTakeOrder,
-} from "../../discord/discordBot";
+import { getCookie } from "cookies-next";
+
+const dcURL = process.env.DCURL || "http://localhost:3001/sendorder/post";
+
 type Data = {
   result: any;
 };
-
-let discordOn: boolean;
 
 export default async function handler(
   req: NextApiRequest,
@@ -31,11 +28,6 @@ export default async function handler(
   }
   if (req.method === "POST") {
     // make sure only login to discord and create event listener to button once
-    if (!discordOn) {
-      await dcLogin();
-      await dcListenTakeOrder();
-      discordOn = true;
-    }
     const reqBody: orderSenderBody = req.body;
     const full_price = reqBody.price;
     const playerPrice = Math.floor(reqBody.price * 0.7); // cut is 3/7
@@ -49,7 +41,25 @@ export default async function handler(
       data: dataBody,
     });
     console.log(result);
-    await dcSendOrder(result.order_id, result.request, result.price);
+    console.log(dcURL);
+    const requestHeaders: HeadersInit = new Headers();
+    requestHeaders.set("Content-Type", "application/json");
+    // console.log(req.headers.cookie?.split("=")[1]);
+    requestHeaders.set("accessToken", `${req.headers.cookie?.split("=")[1]}`);
+    await fetch(dcURL, {
+      method: "POST",
+      headers: requestHeaders,
+      body: JSON.stringify({
+        order_id: `${result.order_id}`,
+      }),
+    })
+      .then((item) => {
+        return item.json();
+      })
+      .then((data) => {
+        console.log(data);
+      });
+
     res.status(200).json({ result: "POST" });
   }
   if (req.method === "PUT") {

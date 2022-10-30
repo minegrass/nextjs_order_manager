@@ -51,3 +51,8 @@
 > -> it works first -> but after i done [some others actions] calling others apit
 > -> my discord login console log called again and multiple listener added ?
 > need to find which action make the variables to false...
+> ->found after i done order + delete order -> variables reset
+> -> bug found when i click done order -> because done order fetch to player api to add balance to the player
+> -> maybe the order api page reset? when i fetch to player api and back to order
+> fixed -> add a express server to host discordjs
+> everything done ... 30/10/2022
