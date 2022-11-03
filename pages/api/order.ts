@@ -6,8 +6,6 @@ import { prisma } from "../../prisma/dbserver";
 import { orderSenderBody } from "../../sharedVar";
 import { getCookie } from "cookies-next";
 
-const dcURL = process.env.DCURL
-
 type Data = {
   result: any;
 };
@@ -46,20 +44,23 @@ export default async function handler(
     requestHeaders.set("Content-Type", "application/json");
     // console.log(req.headers.cookie?.split("=")[1]);
     requestHeaders.set("accessToken", `${req.headers.cookie?.split("=")[1]}`);
-    await fetch(dcURL, {
-      method: "POST",
-      headers: requestHeaders,
-      body: JSON.stringify({
-        order_id: `${result.order_id}`,
-      }),
-    })
-      .then((item) => {
-        return item.json();
+    if (process.env.DC_URL) {
+      await fetch(process.env.DC_URL, {
+        method: "POST",
+        headers: requestHeaders,
+        body: JSON.stringify({
+          order_id: `${result.order_id}`,
+        }),
       })
-      .then((data) => {
-        console.log(data);
-      });
-
+        .then((item) => {
+          return item.json();
+        })
+        .then((data) => {
+          console.log(data);
+        });
+    } else {
+      console.error("no server URL");
+    }
     res.status(200).json({ result: "POST" });
   }
   if (req.method === "PUT") {
