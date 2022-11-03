@@ -6,7 +6,7 @@ import { prisma } from "../../prisma/dbserver";
 import { orderSenderBody } from "../../sharedVar";
 import { getCookie } from "cookies-next";
 
-const dcURL = process.env.DCURL || "http://localhost:3001/sendorder/post";
+const dcURL = process.env.DCURL
 
 type Data = {
   result: any;
