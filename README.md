@@ -7,6 +7,17 @@
 - typescript
 - scss
 
+PROJECT PREVIEW
+ORDER LIST + ORDER INPUT
+![image](https://user-images.githubusercontent.com/25462796/218386719-182aa6bb-e4d2-4a61-a8fe-a6065069b624.png)
+
+PLAYER LIST +  PAY AMOUNT
+![image](https://user-images.githubusercontent.com/25462796/218386866-4c8033b5-b00a-448e-a1a4-e9384c9de2fd.png)
+
+LOGIN PAGE
+![image](https://user-images.githubusercontent.com/25462796/218386927-6fe8eaa0-e672-4c3f-832b-e8c370bc4f9d.png)
+
+
 > ## Function
 
 > - login features
@@ -56,3 +67,7 @@
 > -> maybe the order api page reset? when i fetch to player api and back to order
 > fixed -> add a express server to host discordjs
 > everything done ... 30/10/2022
+
+
+
+
